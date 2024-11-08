@@ -51,4 +51,4 @@ No tiene
  - Sara Ibañez
  - Cristian Braun
 
-- Gracias a la porfesora Katherine Ospino , al monitor Cristian Gonzalez y a la Universidad del Norte. 
+ Gracias a la porfesora Katherine Ospino , al monitor Cristian Gonzalez y a la Universidad del Norte. 
