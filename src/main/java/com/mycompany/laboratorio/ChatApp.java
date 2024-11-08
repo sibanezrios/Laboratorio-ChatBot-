@@ -37,7 +37,7 @@ public class ChatApp extends javax.swing.JFrame {
      if (ListaChat.getModel().getSize() > 0) {
             ListaChat.setListData(Vacio);
             Promt2 = Promt;
-
+// camnio
             // Verificar si ya existe un título en el historial
             boolean tituloOcupado = false;
             for (int i = 0; i < n; i++) {
