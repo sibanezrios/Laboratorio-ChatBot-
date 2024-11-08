@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.laboratorio;
+import java.awt.Image;
 
 import com.sun.source.tree.BreakTree;
 import javax.swing.ImageIcon;
@@ -30,6 +31,7 @@ public class ChatApp extends javax.swing.JFrame {
     /**
      * Creates new form ChatApp
      */
+    
     
     private void guardarEnHistorial() {
     
@@ -204,6 +206,16 @@ private void procesarRespuesta(int posicionPregunta) {
         Promt = new String[n];
         Laboratorio Lab = new Laboratorio();
         initComponents();
+        
+                try {
+            URL url = new URL("https://wallpapercave.com/wp/wp9365373.jpg");
+            ImageIcon icono = new ImageIcon(url);
+            Image imagen = icono.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
+            jLabel2.setIcon(new ImageIcon(imagen));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("No se pudo cargar la imagen desde la URL.");
+        }
     }
 
     /**
@@ -239,12 +251,14 @@ private void procesarRespuesta(int posicionPregunta) {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Juan Sebastian\\Documents\\NetBeansProjects\\Laboratorio\\src\\main\\java\\com\\mycompany\\laboratorio\\logo pequeño.png")); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DuckAI");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
 
-        Pregunta.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 102)));
+        Pregunta.setToolTipText("");
+        Pregunta.setBorder(null);
         Pregunta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PreguntaMouseClicked(evt);
@@ -255,9 +269,9 @@ private void procesarRespuesta(int posicionPregunta) {
                 PreguntaActionPerformed(evt);
             }
         });
-        getContentPane().add(Pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 386, 427, -1));
+        getContentPane().add(Pregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 427, -1));
 
-        Historial.setBackground(new java.awt.Color(0, 0, 51));
+        Historial.setBackground(new java.awt.Color(0, 0, 0));
         Historial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " HISTORIAL ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         Historial.setForeground(new java.awt.Color(255, 255, 255));
         Historial.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,41 +297,46 @@ private void procesarRespuesta(int posicionPregunta) {
                 EnviarMouseClicked(evt);
             }
         });
-        getContentPane().add(Enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(881, 385, -1, -1));
+        getContentPane().add(Enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, 70, 30));
 
-        ListaChat.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 153)));
+        ListaChat.setBackground(new java.awt.Color(0, 0, 0));
+        ListaChat.setBorder(null);
+        ListaChat.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(ListaChat);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 112, 505, 261));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 505, 261));
 
         NChat.setBackground(new java.awt.Color(0, 0, 102));
         NChat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         NChat.setForeground(new java.awt.Color(255, 255, 255));
         NChat.setText("Nuevo chat");
+        NChat.setBorderPainted(false);
         NChat.setFocusPainted(false);
         NChat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NChatMouseClicked(evt);
             }
         });
-        getContentPane().add(NChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(859, 83, -1, -1));
+        getContentPane().add(NChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, -1, -1));
 
         CargarChat.setBackground(new java.awt.Color(0, 0, 102));
         CargarChat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         CargarChat.setForeground(new java.awt.Color(255, 255, 255));
         CargarChat.setText("Cargar Chat Antiguo");
+        CargarChat.setBorderPainted(false);
         CargarChat.setFocusPainted(false);
         CargarChat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CargarChatMouseClicked(evt);
             }
         });
-        getContentPane().add(CargarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 83, -1, -1));
+        getContentPane().add(CargarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
 
         GuardarChat.setBackground(new java.awt.Color(0, 0, 102));
         GuardarChat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         GuardarChat.setForeground(new java.awt.Color(255, 255, 255));
         GuardarChat.setText("Guardar Chat");
+        GuardarChat.setBorderPainted(false);
         GuardarChat.setFocusPainted(false);
         GuardarChat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -329,21 +348,21 @@ private void procesarRespuesta(int posicionPregunta) {
                 GuardarChatActionPerformed(evt);
             }
         });
-        getContentPane().add(GuardarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(737, 83, -1, -1));
+        getContentPane().add(GuardarChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 80, -1, -1));
 
         Regresar.setBackground(new java.awt.Color(0, 0, 102));
         Regresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Regresar.setForeground(new java.awt.Color(255, 255, 255));
         Regresar.setText("Regresar");
+        Regresar.setBorderPainted(false);
         Regresar.setFocusPainted(false);
         Regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RegresarMouseClicked(evt);
             }
         });
-        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(639, 83, -1, -1));
+        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Juan Sebastian\\Documents\\NetBeansProjects\\Laboratorio\\src\\main\\java\\com\\mycompany\\laboratorio\\wp9365373-technical-4k-wallpapers.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
         jLabel2.setAutoscrolls(true);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 460));
